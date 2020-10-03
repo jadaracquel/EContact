@@ -46,12 +46,12 @@
             this.btn_update = new System.Windows.Forms.Button();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_clear = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgv_ContactList = new System.Windows.Forms.DataGridView();
             this.txtbx_search = new System.Windows.Forms.TextBox();
             this.lbl_search = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ContactList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +83,7 @@
             this.txtbx_contactID.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtbx_contactID.Location = new System.Drawing.Point(189, 120);
             this.txtbx_contactID.Name = "txtbx_contactID";
+            this.txtbx_contactID.ReadOnly = true;
             this.txtbx_contactID.Size = new System.Drawing.Size(251, 26);
             this.txtbx_contactID.TabIndex = 2;
             // 
@@ -184,8 +185,8 @@
             this.cmbx_gender.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbx_gender.FormattingEnabled = true;
             this.cmbx_gender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
+            "M",
+            "F"});
             this.cmbx_gender.Location = new System.Drawing.Point(189, 404);
             this.cmbx_gender.Name = "cmbx_gender";
             this.cmbx_gender.Size = new System.Drawing.Size(251, 28);
@@ -202,6 +203,7 @@
             this.btn_add.TabIndex = 16;
             this.btn_add.Text = "Add";
             this.btn_add.UseVisualStyleBackColor = false;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_update
             // 
@@ -214,6 +216,7 @@
             this.btn_update.TabIndex = 17;
             this.btn_update.Text = "Update";
             this.btn_update.UseVisualStyleBackColor = false;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // btn_delete
             // 
@@ -226,6 +229,7 @@
             this.btn_delete.TabIndex = 18;
             this.btn_delete.Text = "Delete";
             this.btn_delete.UseVisualStyleBackColor = false;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_clear
             // 
@@ -238,14 +242,17 @@
             this.btn_clear.TabIndex = 19;
             this.btn_clear.Text = "Clear";
             this.btn_clear.UseVisualStyleBackColor = false;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
-            // dataGridView1
+            // dgv_ContactList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(491, 164);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(465, 269);
-            this.dataGridView1.TabIndex = 15;
+            this.dgv_ContactList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ContactList.Location = new System.Drawing.Point(491, 164);
+            this.dgv_ContactList.Name = "dgv_ContactList";
+            this.dgv_ContactList.Size = new System.Drawing.Size(465, 269);
+            this.dgv_ContactList.TabIndex = 15;
+            this.dgv_ContactList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.r);
+            this.dgv_ContactList.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_ContactList_RowHeaderMouseClick);
             // 
             // txtbx_search
             // 
@@ -270,12 +277,13 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(963, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(958, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(35, 37);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // EContact
             // 
@@ -285,7 +293,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtbx_search);
             this.Controls.Add(this.lbl_search);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgv_ContactList);
             this.Controls.Add(this.btn_clear);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_update);
@@ -308,7 +316,7 @@
             this.Text = "EContact";
             this.Load += new System.EventHandler(this.EContact_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ContactList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -334,7 +342,7 @@
         private System.Windows.Forms.Button btn_update;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_clear;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_ContactList;
         private System.Windows.Forms.TextBox txtbx_search;
         private System.Windows.Forms.Label lbl_search;
         private System.Windows.Forms.PictureBox pictureBox1;
