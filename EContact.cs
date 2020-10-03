@@ -25,6 +25,8 @@ namespace EContact
             //Load data on gridview
             DataTable DT = c.Select();
             dgv_ContactList.DataSource = DT; //load data in datagrid
+            //clear fields
+            Clear();
         }
 
         private void EContact_Load(object sender, EventArgs e)
@@ -47,8 +49,6 @@ namespace EContact
             {
                 //Successfully added contact
                 MessageBox.Show("New Contact Added Successfully!");
-                //clear fields
-                Clear();
                 LoadDataGrid();
             } else
             {
@@ -90,8 +90,6 @@ namespace EContact
             {
                 //Updated contact successfully
                 MessageBox.Show("Contact has been updated successfully!");
-                //clear fields
-                Clear();
                 LoadDataGrid();
             }
             else
@@ -135,8 +133,6 @@ namespace EContact
             {
                 //Successfully deleted
                 MessageBox.Show("Contact deleted successfully!");
-                //clear fields
-                Clear();
                 LoadDataGrid();
             }
             else
