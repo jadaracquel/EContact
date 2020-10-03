@@ -19,12 +19,17 @@ namespace EContact
         }
         Contact c = new Contact();
 
-        private void EContact_Load(object sender, EventArgs e)
+        //Method to load data in datagrid
+        public void LoadDataGrid()
         {
             //Load data on gridview
             DataTable DT = c.Select();
-            dgv_ContactList.DataSource = DT; //load data in 
+            dgv_ContactList.DataSource = DT; //load data in datagrid
+        }
 
+        private void EContact_Load(object sender, EventArgs e)
+        {
+            LoadDataGrid();
         }
 
         private void btn_add_Click(object sender, EventArgs e)
@@ -40,18 +45,17 @@ namespace EContact
             bool isAdded = c.Insert(c);
             if (isAdded == true)
             {
-                //Successfully inserted
+                //Successfully added contact
                 MessageBox.Show("New Contact Added Successfully!");
+                //clear fields
                 Clear();
+                LoadDataGrid();
             } else
             {
-
+                //Failed to add contact
                 MessageBox.Show("Failed to Add Contact. Try Again.");
                 Clear();
             }
-            //Load data on gridview
-            DataTable DT = c.Select();
-            dgv_ContactList.DataSource = DT; //load data in 
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -84,17 +88,15 @@ namespace EContact
             bool isUpdated = c.Update(c);
             if (isUpdated == true)
             {
-                //Updated successfully
+                //Updated contact successfully
                 MessageBox.Show("Contact has been updated successfully!");
-                //Load data on gridview
-                DataTable DT = c.Select();
-                dgv_ContactList.DataSource = DT; //load data in 
                 //clear fields
                 Clear();
+                LoadDataGrid();
             }
             else
             {
-                //Failed to update
+                //Failed to update contact
                 MessageBox.Show("Failed to update contact. Try again.");
             }
         }
@@ -133,17 +135,15 @@ namespace EContact
             {
                 //Successfully deleted
                 MessageBox.Show("Contact deleted successfully!");
-                //Refresh datagrid
-                //Load data on gridview
-                DataTable DT = c.Select();
-                dgv_ContactList.DataSource = DT; //load data in 
                 //clear fields
                 Clear();
+                LoadDataGrid();
             }
             else
             {
                 //Failed to delete
                 MessageBox.Show("Failed to delete contact. Try again.");
+                Clear();
             }
         }
     }
