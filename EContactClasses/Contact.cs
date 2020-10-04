@@ -129,8 +129,6 @@ namespace EContact.EContactClasses
                 {
                     isUpdated = false;
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -172,8 +170,6 @@ namespace EContact.EContactClasses
                 {
                     isDeleted = false;
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -201,9 +197,6 @@ namespace EContact.EContactClasses
                 SqlDataAdapter SDA = new SqlDataAdapter(sql, conn);
                 conn.Open();
                 SDA.Fill(DT);
-//                dgv_ContactList.DataSource = DT;
-//                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                
             }
             catch (Exception ex)
             {
