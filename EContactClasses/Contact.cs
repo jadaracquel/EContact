@@ -40,7 +40,6 @@ namespace EContact.EContactClasses
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 conn.Open();
                 adapter.Fill(DT);
-
             }
             catch(Exception ex)
             {
@@ -187,5 +186,34 @@ namespace EContact.EContactClasses
             return isDeleted;
         }
 
+        public DataTable Search(string keyword)
+        {
+            //Connect DB
+            SqlConnection conn = new SqlConnection(myConnString);
+            DataTable DT = new DataTable();
+            try
+            {
+                string sql = "SELECT * FROM ContactTable WHERE FirstName LIKE '%" + keyword + "%' OR LastName LIKE '%" + keyword + "%' " +
+                    "OR Address LIKE '%" + keyword + "%' OR FirstName LIKE '%" + keyword + "%' OR ContactNo LIKE '%" + keyword + "%'";
+                //Create command using sql and conn
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                //Create SQL Data Adapter using sql command
+                SqlDataAdapter SDA = new SqlDataAdapter(sql, conn);
+                conn.Open();
+                SDA.Fill(DT);
+//                dgv_ContactList.DataSource = DT;
+//                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return DT;
+        }
     }
 }

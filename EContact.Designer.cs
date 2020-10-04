@@ -261,6 +261,7 @@
             this.txtbx_search.Name = "txtbx_search";
             this.txtbx_search.Size = new System.Drawing.Size(403, 26);
             this.txtbx_search.TabIndex = 14;
+            this.txtbx_search.TextChanged += new System.EventHandler(this.txtbx_search_TextChanged);
             // 
             // lbl_search
             // 

@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,18 +15,19 @@ namespace EContact
 {
     public partial class EContact : Form
     {
+        Contact c = new Contact();
+
         public EContact()
         {
             InitializeComponent();
         }
-        Contact c = new Contact();
 
         //Method to load data in datagrid
         public void LoadDataGrid()
         {
-            //Load data on gridview
+            //Load data in datagrid
             DataTable DT = c.Select();
-            dgv_ContactList.DataSource = DT; //load data in datagrid
+            dgv_ContactList.DataSource = DT; 
             //clear fields
             Clear();
         }
@@ -141,6 +144,14 @@ namespace EContact
                 MessageBox.Show("Failed to delete contact. Try again.");
                 Clear();
             }
+        }
+
+        private void txtbx_search_TextChanged(object sender, EventArgs e)
+        {
+            //Get the value from the textbox
+            string keyword = txtbx_search.Text;
+            DataTable DT = c.Search(keyword);
+            dgv_ContactList.DataSource = DT;    //load data in datagrid
         }
     }
 }
