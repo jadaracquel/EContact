@@ -59,9 +59,9 @@
             // 
             this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(345, 12);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(273, 12);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(318, 76);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(444, 89);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
@@ -197,7 +197,7 @@
             this.btn_add.BackColor = System.Drawing.Color.Indigo;
             this.btn_add.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.ForeColor = System.Drawing.Color.White;
-            this.btn_add.Location = new System.Drawing.Point(179, 477);
+            this.btn_add.Location = new System.Drawing.Point(167, 477);
             this.btn_add.Name = "btn_add";
             this.btn_add.Size = new System.Drawing.Size(145, 43);
             this.btn_add.TabIndex = 16;
@@ -210,7 +210,7 @@
             this.btn_update.BackColor = System.Drawing.Color.ForestGreen;
             this.btn_update.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_update.ForeColor = System.Drawing.Color.White;
-            this.btn_update.Location = new System.Drawing.Point(345, 477);
+            this.btn_update.Location = new System.Drawing.Point(333, 477);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(145, 43);
             this.btn_update.TabIndex = 17;
@@ -223,7 +223,7 @@
             this.btn_delete.BackColor = System.Drawing.Color.Red;
             this.btn_delete.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delete.ForeColor = System.Drawing.Color.White;
-            this.btn_delete.Location = new System.Drawing.Point(508, 477);
+            this.btn_delete.Location = new System.Drawing.Point(496, 477);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(145, 43);
             this.btn_delete.TabIndex = 18;
@@ -236,7 +236,7 @@
             this.btn_clear.BackColor = System.Drawing.Color.MediumBlue;
             this.btn_clear.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_clear.ForeColor = System.Drawing.Color.White;
-            this.btn_clear.Location = new System.Drawing.Point(674, 477);
+            this.btn_clear.Location = new System.Drawing.Point(662, 477);
             this.btn_clear.Name = "btn_clear";
             this.btn_clear.Size = new System.Drawing.Size(145, 43);
             this.btn_clear.TabIndex = 19;
@@ -290,6 +290,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1005, 546);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtbx_search);
